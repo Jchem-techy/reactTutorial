@@ -2,17 +2,34 @@ import './App.css';
 import { useState } from 'react';
 function App() {
   // console.log(useState());
-  const [name, setName] = useState(`mario`);
-  // the first element(name) is the actual state value i.e the default value passed into the useState method in this case (mario)
-  const handleClick = () => {
-    // since we want the name to respond to an eventlistener we setup the function here
-    setName(`luigi`);
-    console.log(name);
+
+  const [events, setEvents] = useState([
+    { title: `mario birthday`, id: 1 },
+    { title: `bowser's livestream`, id: 2 },
+    { title: `race on the moo moo farm`, id: 3 },
+  ]);
+  const handleClick = (id) => {
+    console.log(id);
+    // the prevState here assume the default value of the state before the setEvents
+    setEvents((prevEvents) => {
+      return prevEvents.filter((event) => {
+        if (event.id !== id) {
+          return event;
+        }
+      });
+    });
   };
   return (
     <div className='App'>
-      <h1>{name}</h1>
-      <button onClick={handleClick}>change Name</button>
+      {events.map((event) => {
+        const mapped = event.title;
+        return (
+          <div key={event.id}>
+            <h2>{mapped}</h2>
+            <button onClick={() => handleClick(event.id)}>delete</button>
+          </div>
+        );
+      })}
     </div>
   );
 }
