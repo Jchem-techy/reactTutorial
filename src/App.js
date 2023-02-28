@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
-
+import { useState } from 'react';
 function App() {
+  // console.log(useState());
+  const [name, setName] = useState(`mario`);
+  // the first element(name) is the actual state value i.e the default value passed into the useState method in this case (mario)
+  const handleClick = () => {
+    // since we want the name to respond to an eventlistener we setup the function here
+    setName(`luigi`);
+    console.log(name);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <h1>{name}</h1>
+      <button onClick={handleClick}>change Name</button>
     </div>
   );
 }
