@@ -31,11 +31,11 @@ function App() {
   };
   return (
     <div className='App'>
-      {/* {events.map((event) => {
+      {events.map((event) => {
         if (event.id === 1) {
           return <h1>{event.title}</h1>;
         }
-      })} */}
+      })}
       <Title
         title='Mario Kingdom Event'
         subtitle='All the latest event in mario kingdom'
