@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import './NewEventForm.css';
-function NewEventForm({ addEvent }) {
+function NewEventForm({ addEvent, handleModal }) {
   const [title, setTitle] = useState('');
   const [date, setDate] = useState('');
   function handleChange(e) {
-    // console.log(e.target.value);
     setTitle(e.target.value);
   }
   function resetForm() {
@@ -28,23 +27,25 @@ function NewEventForm({ addEvent }) {
         <span>Event Title:</span>
         <input
           type='text'
+          value={title}
           onChange={(e) => {
             setTitle(e.target.value);
           }}
-          value={title}
         />
       </label>
       <label>
-        <span>Event Data:</span>
+        <span>Event Date:</span>
         <input
           type='date'
+          value={date}
           onChange={(e) => {
             setDate(e.target.value);
           }}
-          value={title}
         />
       </label>
-      <button type='submit'>submit</button>
+      <button type='submit' onClick={handleModal}>
+        submit
+      </button>
       <p>
         title-{title} and date-{date}
       </p>

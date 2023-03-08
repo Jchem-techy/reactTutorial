@@ -1,0 +1,11 @@
+{
+  "trips": [
+    { "title": "trip to venice", "price": "$400" },
+    { "title": "trip to jojo", "price": "$400" },
+    { "title": "trip to greed", "price": "$400" },
+    { "title": "trip to island", "price": "$400" },
+    { "title": "trip to dead", "price": "$400" },
+    { "title": "trip to undead", "price": "$400" }
+  ],
+  "cinema": []
+}
